@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="mainpage.css">
+    <style>
+        body{
+    background-image: url("{{url_for('static', filename='/image/main    .jpg')}}");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: rgb(251, 96, 107);
+}
+label{
+    display: inline-block;
+    width: 30px;
+    margin-right: 30px;
+    color: white;
+}
+form{
+    max-width: 500px;
+    margin-left: 600px;
+    margin-top: 200px;
+}
+input{
+    margin-bottom: 10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 200px;
+    
+}
+textarea{
+    height:50px;
+    width: 200px;
+}
+h1{
+    padding: 20px;
+}
+.scrollbutton{
+    text-decoration: none;
+    color: aliceblue;
+    background-color: rgb(251, 96, 107);
+    width: 100px;
+}
+.scrollbutton:hover{
+    background-color: white;
+    color: rgb(251, 96, 107);
+}
+.buttonoutline{
+    width: 150px;
+    background-color: rgb(251, 96, 107);
+    border-color: white;
+    border-width: thin medium thick;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+.buttonoutline:hover{
+    background-color: white;
+    color: rgb(251, 96, 107);
+}
+.tagline{
+    margin-left: 50px;
+    margin-top: 100px;
+    font-size: 35px;
+}
+.funfacts{
+    margin-left: 80px;
+    font-size: 25px;
+    color: rgb(255, 215, 215);
+}
+ul{
+    margin-left: 200px;
+    list-style-type: none;
+    margin-top: -75px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    margin-left: 10px;
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+  color: #ff8383;
+}
+.popup {
+      display: none;
+      position: absolute;
+      width: 250px;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 1;
+    }
+#gender:hover + .popup {
+    display: block;
+}
+#height:hover + .popup {
+    display: block;
+}
+#weight:hover + .popup {
+    display: block;
+}
+#aphi:hover + .popup {
+    display: block;
+}
+#aplow:hover + .popup {
+    display: block;
+}
+#chol:hover + .popup {
+    display: block;
+}
+#gulc:hover + .popup {
+    display: block;
+}
+#smoke:hover + .popup {
+    display: block;
+}#alch:hover + .popup {
+    display: block;
+}
+#exer:hover + .popup {
+    display: block;
+}
+#age:hover + .popup {
+    display: block;
+}
+.sub{
+    width: 100px;
+    height: 36px;
+    background-color: black;
+    color: white;
+    margin-left: 100px;
+}
+.sub:hover{
+    background-color: white;
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>RANDIT</h1>
+        <ul>
+            <li><a href="default.asp">Home</a></li>
+            <li><a href="news.asp">News</a></li>
+            <li><a href="contact.asp">Contact</a></li>
+            <li><a href="about.asp">About</a></li>
+        </ul>
+        <h3 class="tagline"> <b> We're here to check your heart at your doorstep.</b></h3>
+        <p class="funfacts"> <strong> Your heart beats around 100,000 times a day.<br>
+        Your heart pumps 2,000 gallons of blood a day.<br>
+         Heart attacks happen most often on Monday mornings.</strong></p>
+         <div style="margin-top: 200px;"><center><p style="font-family: monospace; font-size: 25px; color: white;"><b>Click the button to check out your HEART HEALTH!!!</b></p>
+        <button class="buttonoutline"><a href="#input_sec" class="scrollbutton"><strong>Scroll</strong></a></button></center>
+    </div>
+    </div>
+    <div id="input_sec">
+    <form action="/act" method = 'post'>
+        <label for="id">ID</label>
+        <input type="number" name="id" id="id"><br>
+        <label for="gender">Gender</label>
+        <input type="number" name="gender" id="gender" min="1" max="2">
+        <div class="popup"><b>Enter your gender.</b> <br>
+            1 being MALE <br>
+            2 being FEMALE
+        </div>
+        <br>
+        <label for="height" >Height in cms</label>
+        <input type="number" name="height" id="height" min="50" max="250">
+        <div class="popup"><b>Enter your Height in Centimeters.</b> <br>
+            Ranging between 50 to 250</div>
+        <br>
+        <label for="weight">Weight</label>
+        <input type="number" name="weight" id="weight" min="10" max="150">
+        <div class="popup"> <b> Enter your Weight in Kilograms. </b> <br>
+        Ranging between 50 to 150</div>
+        <br> 
+        <label for="aphi">Diastolic BP</label>
+        <input type="number" name="aphi" id="aphi" min="20" max="200">
+        <div class="popup"><b>Enter your Diastolic Blood Pressure. </b> <br>
+            Below 80mmHg</div>
+        <br>
+        <label for="aplow">Systolic BP</label>
+        <input type="number" name="aplow" id="aplow" min="20" max="200">
+        <div class="popup"> <b> Enter your Systolic Blood Pressure. </b> <br>
+            Below 300mmHg</div>
+        <br>
+        <label for="chol">Chol</label>
+        <input type="number" name="chol" id="chol" min="1" max="3">
+        <div class="popup"> <b> Enter your Cholestrol level(1-3).</b><br>
+            1 being the normal and 3 being the highest.</div>
+        <br>
+        <label for="gulc">Gulcose</label>
+        <input type="number" name="gulc" id="gulc" min="1" max="3">
+        <div class="popup"> <b> Enter your Glucose level.(1-3) </b> <br>
+            1 being the normal and 3 being the highest.</div>
+        <br>
+        <label for="smoke">Smoke</label>
+        <input type="number" name="smoke" id="smoke" min="0" max="1">
+        <div class="popup"> <b> Do you SMOKE?.</b> <br>
+            1-YES <br>
+        0-NO </div>
+        <br>
+        <label for="alch">Alcohol Intake</label>
+        <input type="number" name="alch" id="alch" min="0" max="1">
+        <div class="popup"> <b> Do you consume ALCOHOL?.</b> <br>
+            1-YES <br>
+        0-NO </div>
+        <br>
+        <label for="exer">Physical Activity</label>
+        <input type="number" name="exer" id="exer" min="0" max="1">
+        <div class="popup"> <b> Do you EXERCISE REGULARLY?.</b> <br>
+            1-YES <br>
+        0-NO </div>
+        <br><label for="age">Age</label>
+        <input type="number" name="age" id="age" min="10" max="110">
+        <div class="popup"> <b> Enter your AGE in years.</b> <br>
+            Ranging between 15 to 110</div>
+        <br>
+        <div><input type="submit" class="sub"></div>
+    </form>
+    
+
+    
+</div>
+
+       
+    
+    
+
+</body>
+</html>
